@@ -21,6 +21,14 @@ girl_friend_id = os.environ["GIRL_FRIEND_ID"]
 # 设置模板id
 template_id = os.environ["TEMPLATE_ID"]
 
+def get_today():
+  local_time = datetime.localtime(datetime.time())   # 获取当前时间的时间元组
+  # time.struct_time(tm_year=2022, tm_mon=4, tm_mday=9, tm_hour=13, tm_min=48, tm_sec=23, tm_wday=5, tm_yday=99, tm_isdst=0)
+  week_index = local_time.tm_wday  #  获取时间元组内的tm_wday值
+  # 配置名称列表
+  week_list = ["星期一", "星期二", "星期三", "星期四", "星期五", "星期六", "星期日"]
+  now = today.strftime("%Y-%m-%d %H:%M:%S")
+  return now + " " + week_list[week_index]
 
 def get_weather():
   url = "http://autodev.openspeech.cn/csp/api/v2.1/weather?openId=aiuicus&clientType=android&sign=android&city=" + city
@@ -53,6 +61,7 @@ client = WeChatClient(app_id, app_secret)
 wm = WeChatMessage(client)
 wea, temperature = get_weather()
 data = {
+  "dateTime":{"value":get_today,"color":get_random_color()},
   "weather":{"value":wea,"color":get_random_color()},
   "temperature":{"value":temperature,"color":get_random_color()},
   "love_days":{"value":get_count(),"color":get_random_color()},
@@ -60,5 +69,5 @@ data = {
   "words":{"value":get_words(),"color":get_random_color()}}
 
 res_boy = wm.send_template(boy_friend_id, template_id, data)
-res_girl = wm.send_template(girl_friend_id, template_id, data)
+#res_girl = wm.send_template(girl_friend_id, template_id, data)
 
