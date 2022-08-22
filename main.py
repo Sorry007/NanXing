@@ -24,7 +24,7 @@ app_secret = os.environ["APP_SECRET"]
 # 设置男朋友的账号
 boy_friend_id = os.environ["BOY_FRIEND_ID"]
 # 设置女朋友的账号
-#girl_friend_id = os.environ["GIRL_FRIEND_ID"]
+girl_friend_id = os.environ["GIRL_FRIEND_ID"]
 # 设置模板id
 template_id = os.environ["TEMPLATE_ID"]
 
@@ -150,5 +150,5 @@ data = {
   }
   
 res_boy = wm.send_template(boy_friend_id, template_id, data)
-#res_girl = wm.send_template(girl_friend_id, template_id, data)
+res_girl = wm.send_template(girl_friend_id, template_id, data)
 
