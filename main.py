@@ -1,5 +1,6 @@
 from datetime import date, datetime
 import math
+import time
 from wechatpy import WeChatClient
 from wechatpy.client.api import WeChatMessage, WeChatTemplate
 import requests
@@ -21,14 +22,20 @@ boy_friend_id = os.environ["BOY_FRIEND_ID"]
 # 设置模板id
 template_id = os.environ["TEMPLATE_ID"]
 
+# 获取当前周几
+def get_weekdays():
+    week_list = ["星期一", "星期二", "星期三", "星期四", "星期五", "星期六", "星期日"]
+    local_time = time.localtime(time.time())   # 获取当前时间的时间元组
+    # time.struct_time(tm_year=2022, tm_mon=4, tm_mday=9, tm_hour=13, tm_min=48, tm_sec=23, tm_wday=5, tm_yday=99, tm_isdst=0)
+    week_index = local_time.tm_wday  # 获取时间元组内的tm_wday值
+    week = week_list[week_index]
+    return week
+
+# 获取当前日期
 def get_today():
-  local_time = datetime.localtime(datetime.time())   # 获取当前时间的时间元组
-  # time.struct_time(tm_year=2022, tm_mon=4, tm_mday=9, tm_hour=13, tm_min=48, tm_sec=23, tm_wday=5, tm_yday=99, tm_isdst=0)
-  week_index = local_time.tm_wday  #  获取时间元组内的tm_wday值
-  # 配置名称列表
-  week_list = ["星期一", "星期二", "星期三", "星期四", "星期五", "星期六", "星期日"]
-  now = today.strftime("%Y-%m-%d %H:%M:%S")
-  return now + " " + week_list[week_index]
+  now = datetime.datetime.now()
+  # 格式化到日（varchar）
+  return now.strftime("%Y-%m-%d")
 
 def get_weather():
   url = "http://autodev.openspeech.cn/csp/api/v2.1/weather?openId=aiuicus&clientType=android&sign=android&city=" + city
@@ -61,7 +68,7 @@ client = WeChatClient(app_id, app_secret)
 wm = WeChatMessage(client)
 wea, temperature = get_weather()
 data = {
-  "dateTime":{"value":get_today(),"color":get_random_color()},
+  "dateTime":{"value":get_today()+" "+get_weekdays(),"color":get_random_color()},
   "weather":{"value":wea,"color":get_random_color()},
   "temperature":{"value":temperature,"color":get_random_color()},
   "love_days":{"value":get_count(),"color":get_random_color()},
