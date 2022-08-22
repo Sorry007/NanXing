@@ -77,7 +77,7 @@ def get_weather():
                   #空气质量
                   aqi = result['result']['realtime']['aqi']
                   print("温度：%s\n湿度：%s\n天气：%s\n天气标识：%s\n风向：%s\n风力：%s\n空气质量：%s" % (
-                      temperature, humidity, info, wid, direct, power, aqi))
+                      temperature, humidity, info, direct, power, aqi))
                   message = "记得爱自己💖"
                   if "晴" in info:
                     if temperature >= 35:
