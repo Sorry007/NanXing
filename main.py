@@ -17,7 +17,7 @@ app_secret = os.environ["APP_SECRET"]
 # 设置男朋友的账号
 boy_friend_id = os.environ["BOY_FRIEND_ID"]
 # 设置女朋友的账号
-girl_friend_id = os.environ["GIRL_FRIEND_ID"]
+#girl_friend_id = os.environ["GIRL_FRIEND_ID"]
 # 设置模板id
 template_id = os.environ["TEMPLATE_ID"]
 
@@ -61,7 +61,7 @@ client = WeChatClient(app_id, app_secret)
 wm = WeChatMessage(client)
 wea, temperature = get_weather()
 data = {
-  "dateTime":{"value":get_today,"color":get_random_color()},
+  "dateTime":{"value":get_today(),"color":get_random_color()},
   "weather":{"value":wea,"color":get_random_color()},
   "temperature":{"value":temperature,"color":get_random_color()},
   "love_days":{"value":get_count(),"color":get_random_color()},
