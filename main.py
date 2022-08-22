@@ -45,8 +45,7 @@ def get_words():
   return words.json()['data']['text']
 
 def get_random_color():
-  #return "#%06x" % random.randint(0, 0xFFFFFF)
-  return random.randint(0, 0xFFFFFF)
+  return "#%06x" % random.randint(0, 0xFFFFFF)
 
 
 client = WeChatClient(app_id, app_secret)
@@ -58,7 +57,7 @@ data = {
   "temperature":{"value":temperature},
   "love_days":{"value":get_count()},
   "birthday_left":{"value":get_birthday()},
-  "words":{"value":"每日一句♥: " + get_words() + "🌹", 
+  "words":{"value":"每日一句♥: " + get_words(), 
   "color":get_random_color()}}
 #res_girl_friend = wm.send_template(girl_friend_id, template_id, data)
 res_user = wm.send_template(user_id, template_id, data)
