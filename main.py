@@ -57,7 +57,7 @@ data = {
   "temperature":{"value":temperature},
   "love_days":{"value":get_count()},
   "birthday_left":{"value":get_birthday()},
-  "words":{"value":"每日一句♥: " + get_words(), 
+  "words":{"value": get_words(), 
   "color":get_random_color()}}
 #res_girl_friend = wm.send_template(girl_friend_id, template_id, data)
 res_user = wm.send_template(user_id, template_id, data)
