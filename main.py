@@ -15,7 +15,7 @@ app_id = os.environ["APP_ID"]
 app_secret = os.environ["APP_SECRET"]
 
 # 设置女朋友账号
-girl_id = os.environ["ID"]
+# girl_id = os.environ["ID"]
 # 设置自己的账号
 user_id = os.environ["USER_ID"]
 # 设置模板id
@@ -59,7 +59,11 @@ data = {
   "birthday_left":{"value":get_birthday(),"color":get_random_color()},
   "words":{"value":get_words(),"color":get_random_color()}}
 
-res_girl_friend_id = wm.send_template(girl_id, template_id, data)
-res_user = wm.send_template(user_id, template_id, data)
+list = user_id.split(",")
+for x in list:
+  res_user = wm.send_template(x, template_id, data)
+
+# res_girl_friend_id = wm.send_template(girl_id, template_id, data)
+# res_user = wm.send_template(user_id, template_id, data)
 # print(res_girl_friend)
 # print(res_user)
