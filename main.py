@@ -59,8 +59,6 @@ data = {
   "birthday_left":{"value":get_birthday(),"color":get_random_color()},
   "words":{"value":get_words(),"color":get_random_color()}}
 
-list = user_id.split(",")
-
 res_boy = wm.send_template(boy_friend_id, template_id, data)
 res_girl = wm.send_template(girl_friend_id, template_id, data)
 
