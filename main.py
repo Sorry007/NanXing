@@ -137,19 +137,19 @@ client = WeChatClient(app_id, app_secret)
 
 wm = WeChatMessage(client)
 # wea, temperature = get_weather()
-temperature,humidity,info,direct,power,aqi,message= get_weather()
+wm_temperature,wm_humidity,wm_info,wm_direct,wm_power,wm_aqi,wm_message= get_weather()
 data = {
   "dateTime":{"value":get_today()+" "+get_weekdays(),"color":get_random_color()},
-  "weather":{"value":info,"color":get_random_color()},
-  "temperature":{"value":temperature,"color":get_random_color()},
-  "humidity":{"value":humidity,"color":get_random_color()},
-  "aqi":{"value":aqi,"color":get_random_color()},
-  "direct":{"value":humidity,"color":get_random_color()},
-  "power":{"value":aqi,"color":get_random_color()},
+  "weather":{"value":wm_info,"color":get_random_color()},
+  "temperature":{"value":wm_temperature,"color":get_random_color()},
+  "humidity":{"value":wm_humidity,"color":get_random_color()},
+  "aqi":{"value":wm_aqi,"color":get_random_color()},
+  "direct":{"value":wm_direct,"color":get_random_color()},
+  "power":{"value":wm_power,"color":get_random_color()},
   "love_days":{"value":get_count(),"color":get_random_color()},
   "birthday_left":{"value":get_birthday(),"color":get_random_color()},
   "words":{"value":get_words(),"color":get_random_color()},
-  "message":{"value":message,"color":get_random_color()}
+  "message":{"value":wm_message,"color":get_random_color()}
   }
   
 res_boy = wm.send_template(boy_friend_id, template_id, data)
