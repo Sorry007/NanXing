@@ -43,6 +43,8 @@ def get_weather():
                       message_ = "今日温度过高，注意做好防晒呀🌞"
                     else:
                       message_ = "今日温度适宜，记得多晒太阳，长高高~😊"
+                  else:
+                    message_ = "今日温度适宜，记得多晒太阳，长高高~😊"
 
                   if "云" in info:
                     message_ = "今日温度适宜，记得多晒太阳，长高高~😊" 
