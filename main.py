@@ -33,9 +33,7 @@ def get_weekdays():
 
 # 获取当前日期
 def get_today():
-  now = datetime.datetime.now()
-  # 格式化到日（varchar）
-  return now.strftime("%Y-%m-%d")
+  return time.strftime('%Y{}%m{}%d{}  %H{}%M{}%S{}',time.localtime()).format("年","月","日","时","分","秒")
 
 def get_weather():
   url = "http://autodev.openspeech.cn/csp/api/v2.1/weather?openId=aiuicus&clientType=android&sign=android&city=" + city
