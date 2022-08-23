@@ -7,7 +7,7 @@ import os
 import random
 import requests
 
-today = datetime.now()
+today = datetime.now()+datetime.timedelta(hours=8)
 
 app_id = os.environ["APP_ID"]
 app_secret = os.environ["APP_SECRET"]
@@ -30,7 +30,7 @@ def get_weekdays():
 
 # 获取当前日期
 def get_today():
-  return time.strftime('%Y{}%m{}%d{} %H{}%M{}',time.localtime()).format("年","月","日","时","分")
+  return time.strftime('%Y{}%m{}%d{} %H{}%M{}',today).format("年","月","日","时","分")
 
 def get_words():
   words = requests.get("https://api.shadiao.pro/chp")
@@ -56,5 +56,5 @@ data = {
 }
 
 res_boy = wm.send_template(boy_friend_id, template_id, data)
-# res_girl = wm.send_template(girl_friend_id, template_id, data)
+res_girl = wm.send_template(girl_friend_id, template_id, data)
 
