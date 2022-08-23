@@ -1,4 +1,3 @@
-from datetime import date, datetime
 from distutils.log import INFO
 import time
 from wechatpy import WeChatClient
@@ -6,8 +5,7 @@ from wechatpy.client.api import WeChatMessage, WeChatTemplate
 import os
 import random
 import requests
-
-today = datetime.now()
+import datetime
 
 app_id = os.environ["APP_ID"]
 app_secret = os.environ["APP_SECRET"]
@@ -30,7 +28,7 @@ def get_weekdays():
 
 # 获取当前日期
 def get_today():
-  return (datetime.now() + datetime.timedelta(hours=8)).strftime('%Y-%m-%d %H:%M:%S')   
+  return (datetime.datetime.now() + datetime.timedelta(hours=8)).strftime('%Y-%m-%d %H:%M:%S')   
   #return time.strftime('%Y{}%m{}%d{} %H{}%M{}',time.localtime()).format("年","月","日","时","分")
 
 def get_words():
