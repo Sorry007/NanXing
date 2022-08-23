@@ -30,7 +30,7 @@ def get_weekdays():
 
 # 获取当前日期
 def get_today():
-  return (datetime.datetime.now() + datetime.timedelta(hours=8)).strftime('%Y-%m-%d %H:%M:%S')   
+  return (datetime.now() + datetime.timedelta(hours=8)).strftime('%Y-%m-%d %H:%M:%S')   
   #return time.strftime('%Y{}%m{}%d{} %H{}%M{}',time.localtime()).format("年","月","日","时","分")
 
 def get_words():
