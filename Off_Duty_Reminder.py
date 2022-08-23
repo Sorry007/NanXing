@@ -28,7 +28,7 @@ def get_weekdays():
 
 # 获取当前日期
 def get_today():
-  return (datetime.datetime.now() + datetime.timedelta(hours=8)).strftime('%Y年%m月%d日 %H时%M分%S秒')   
+  return (datetime.datetime.now() + datetime.timedelta(hours=8)).strftime('%Y年%m月%d日%H时%M分')   
   #return time.strftime('%Y{}%m{}%d{} %H{}%M{}',time.localtime()).format("年","月","日","时","分")
 
 def get_words():
