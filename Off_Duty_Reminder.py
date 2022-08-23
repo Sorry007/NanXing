@@ -20,7 +20,7 @@ boy_friend_id = os.environ["BOY_FRIEND_ID"]
 # 设置女朋友的账号
 girl_friend_id = os.environ["GIRL_FRIEND_ID"]
 # 设置模板id
-template_id = os.environ["TEMPLATE_ID"]
+template_id = os.environ["LOW_WORK_TEMPLATE_ID"]
 
 # 获取当前周几
 def get_weekdays():
