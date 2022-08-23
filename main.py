@@ -1,8 +1,8 @@
-from ast import If
+
 from datetime import date, datetime
 from distutils.log import INFO
-import math
 import time
+import datetime
 from wechatpy import WeChatClient
 from wechatpy.client.api import WeChatMessage, WeChatTemplate
 import requests
@@ -39,7 +39,7 @@ def get_weekdays():
 
 # 获取当前日期
 def get_today():
-  return time.strftime('%Y{}%m{}%d{}',time.localtime()).format("年","月","日")
+  return (datetime.datetime.now() + datetime.timedelta(hours=8)).strftime('%Y年%m月%d日%H时%M分')   
 
 def get_weather():
   api_url = 'http://apis.juhe.cn/simpleWeather/query'
@@ -150,5 +150,5 @@ data = {
   }
   
 res_boy = wm.send_template(boy_friend_id, template_id, data)
-res_girl = wm.send_template(girl_friend_id, template_id, data)
+#res_girl = wm.send_template(girl_friend_id, template_id, data)
 
