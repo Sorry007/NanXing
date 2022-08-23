@@ -149,5 +149,5 @@ data = {
   }
   
 res_boy = wm.send_template(boy_friend_id, template_id, data)
-#res_girl = wm.send_template(girl_friend_id, template_id, data)
+res_girl = wm.send_template(girl_friend_id, template_id, data)
 
