@@ -1,8 +1,7 @@
-
 from datetime import date, datetime
 from distutils.log import INFO
+import math
 import time
-import datetime
 from wechatpy import WeChatClient
 from wechatpy.client.api import WeChatMessage, WeChatTemplate
 import requests
@@ -39,7 +38,7 @@ def get_weekdays():
 
 # 获取当前日期
 def get_today():
-  return (datetime.datetime.now() + datetime.timedelta(hours=8)).strftime('%Y年%m月%d日%H时%M分')   
+  return time.strftime('%Y{}%m{}%d{}',time.localtime()).format("年","月","日")
 
 def get_weather():
   api_url = 'http://apis.juhe.cn/simpleWeather/query'
@@ -92,7 +91,7 @@ def get_weather():
                     message_ = "今天可能会下雪🌨，记得做好防护~" 
 
                   if "阴" in info:
-                    message_ = "今天可能见不到太阳啦~" 
+                    message_ = "今天可能见不到太阳啦，但也不能没有阳光~" 
 
                   if "雾" in info:
                     message_ = "今天可见度会降低，小心别迷路~"

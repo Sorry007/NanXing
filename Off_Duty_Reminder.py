@@ -39,7 +39,7 @@ def get_words():
 
 # 获取下班提醒
 def get_message():
-  message_ = "马上就要下班啦，记得打卡，带好自己的东西~"
+  message_ = "马上就要下班啦，记得打卡，带好自己的随身物品~"
   return message_
 
 def get_random_color():
